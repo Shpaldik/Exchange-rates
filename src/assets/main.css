@@ -1,0 +1,26 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body{
+    background: rgba(8, 9, 11, 1);
+    margin-right: 80px;
+    margin-left: 80px;
+}
+
+header{
+    border-bottom: rgba(37, 44, 65, 1) 1px solid;
+}
+input{
+    background: radial-gradient(100% 100% at 50% 0%, #26314E 0%, #252B3D 100%);
+    border: none;
+    border-radius: 8px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    color: #FFFFFF;
+
+    outline: none;
+}
