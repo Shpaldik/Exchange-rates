@@ -1,18 +1,19 @@
 <template>
   <section>
-    <div v-if="isLoading" class="text-center mt-4">Loading...</div>
-    <div v-else class="bg-bgGray w-full h-auto rounded-lg py-4">
-      <div class="flex justify-between items-center">
-        <p class="text-textGray ml-5">Crypto Currency</p>
-        <div class="flex gap-32 ml-96 mr-72">
-          <p class="text-textGray">Price</p>
-          <p class="text-textGray">Change</p>
-          <p class="text-textGray">Volume</p>
-        </div>
-      </div>
+    <div class="mx-32">
+      <div v-if="isLoading" class="text-center mt-4">Loading...</div>
+        <div v-else class="bg-bgGray w-full h-auto rounded-lg border border-gray-800 py-1">
+            <div class="flex justify-between items-center">
+                <p class="text-textGray ml-5">Asset</p>
+                  <div class="flex gap-32 ml-96 mr-72">
+                    <p class="text-textGray">Price</p>
+                    <p class="text-textGray">Change</p>
+                    <p class="text-textGray">Volume</p>
+                  </div>
+            </div>
       <div class="border border-gray-800 mt-3"></div>
 
-      <div v-for="(coin, index) in popularCoins" :key="coin.id" class="flex justify-between items-center m-5 mb-4 border-b border-gray-800">
+      <div v-for="(coin, index) in popularCoins" :key="coin.id" class="flex justify-between items-center m-5  border-b border-gray-800">
         <p class="text-white">{{ coin.name }}</p>
         <div class="flex gap-20 text-white mr-10">
           <img src="" alt="">
@@ -25,6 +26,10 @@
         </div>
       </div>
     </div>
+
+    <a href="https://coinmarketcap.com/"><button id="btn" class="bg-btnBead rounded-lg text-white w-full py-2 px-4 mt-5">All assets</button></a>
+    </div>
+
   </section>
 </template>
 
@@ -60,6 +65,10 @@ export default {
         this.isLoading = false;
       }
     },
+    format (img) {
+      return `$${img.logo_url}`
+      
+    },
     formatPrice(price) {
       return `$${price.toFixed(2)}`;
     },
@@ -87,3 +96,10 @@ export default {
 
 };
 </script>
+
+<style>
+#btn {
+  background: radial-gradient(100% 100% at 50% 0%, #26314E 0%, #1E253C 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */;
+
+}
+</style>

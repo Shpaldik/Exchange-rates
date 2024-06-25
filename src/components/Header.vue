@@ -1,6 +1,6 @@
 <template>
-    <header>
-        <div class="flex justify-between items-center py-6">
+    <header class="fixed w-full top-0 z-10">
+        <div class="flex justify-between items-center mx-32 py-6">
             <img src="/public/logo.svg" alt="">
             <div class="relative w-full max-w-xs">
                 <input type="text" placeholder="Search" class="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">

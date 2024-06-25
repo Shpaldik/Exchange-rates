@@ -4,11 +4,11 @@
 
 body{
     background: rgba(8, 9, 11, 1);
-    margin-right: 80px;
-    margin-left: 80px;
+
 }
 
 header{
+    background: rgba(8, 9, 11, 1);
     border-bottom: rgba(37, 44, 65, 1) 1px solid;
 }
 
