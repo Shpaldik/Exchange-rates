@@ -13,7 +13,7 @@
                     </div> 
                 </div>
 
-            <img src="/public/ill.png" alt="">   
+            <img src="/public/ill.png" alt="" width="700">   
         </div>
     </section>
 </template>

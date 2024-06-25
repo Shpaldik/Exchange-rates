@@ -10,6 +10,7 @@ export default {
         'cyan': '#66cbf9',
         'btnGray': 'rgba(38, 49, 78, 1)',
         'textGray': 'rgba(70, 78, 98, 1)',
+        'bgGray': 'rgba(18, 23, 31, 1)',
       },
     },
   },

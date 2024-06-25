@@ -11,6 +11,7 @@ body{
 header{
     border-bottom: rgba(37, 44, 65, 1) 1px solid;
 }
+
 input{
     background: radial-gradient(100% 100% at 50% 0%, #26314E 0%, #252B3D 100%);
     border: none;
