@@ -15,6 +15,7 @@
       <div v-for="(coin, index) in popularCoins" :key="coin.id" class="flex justify-between items-center m-5 mb-4 border-b border-gray-800">
         <p class="text-white">{{ coin.name }}</p>
         <div class="flex gap-20 text-white mr-10">
+          <img src="" alt="">
           <p>{{ formatPrice(coin.quote.USD.price) }}</p>
           <p :class="changeColorClass(coin.quote.USD.percent_change_24h)">
             {{ coin.quote.USD.percent_change_24h }}%
@@ -86,7 +87,3 @@ export default {
 
 };
 </script>
-
-<style>
-/* Никаких дополнительных стилей в этом блоке, поскольку используется Tailwind CSS */
-</style>
