@@ -43,8 +43,8 @@ export default {
       isLoading: false,
       apiKey: '11ba263a-2927-4a74-81fb-d071f57726dc',
       apiUrl: 'https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest',
-      popularCoinsCount: 6, // Количество популярных монет для отображения
-      updateInterval: 60000 // Интервал обновления данных в миллисекундах
+      popularCoinsCount: 6,
+      updateInterval: 60000
     };
   },
   created() {
@@ -85,7 +85,7 @@ export default {
       } else if (percentChange > 0) {
         return 'text-green-500';
       } else {
-        return 'text-textGray'; // Цвет по умолчанию, если процентное изменение равно 0
+        return 'text-textGray';
       }
     },
     startAutoUpdate() {

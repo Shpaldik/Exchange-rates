@@ -18,8 +18,48 @@
                     <button class="bg-btnGray rounded-lg text-white py-2 px-4">Register</button>
                     <button class="bg-cyan rounded-lg py-2 px-4">Log in</button>
                 </div>
-                <img class="w-8 h-8 lg:w-10 lg:h-10 cursor-pointer lg:hidden" src="/public/menu.png" alt="Menu">
+                <button @click="toggleMenu" class="w-8 h-8 lg:w-10 lg:h-10 cursor-pointer lg:hidden">
+                    <img v-if="!showMenu" src="/public/menu.png" alt="Menu">
+                    <img v-else src="/public/close.png" alt="Close">
+                </button>
+            </div>
+        </div>
+
+        <div v-if="showMenu" class="lg:hidden bg-bgGray absolute top-0 left-0 w-full h-screen py-4">
+            <div class="flex justify-end mx-4 sm:mx-8 lg:mx-16 xl:mx-32">
+                <button @click="closeMenu" class="w-8 h-8 cursor-pointer">
+                    <img src="/public/close.png" alt="Close">
+                </button>
+            </div>
+            <div class="flex flex-col items-center text-white mt-8">
+                <a class="text-textGray my-2" href="#">Trade</a>
+                <a class="text-textGray my-2" href="#">P2P</a>
+                <a class="text-textGray my-2" href="#">Partners</a>
+                <a class="text-textGray my-2" href="#">Mining</a>
+                <a class="text-textGray my-2" href="#">Academy</a>
+                <button class="bg-btnGray rounded-lg text-white py-2 px-4 my-4">Register</button>
+                <button class="bg-cyan rounded-lg text-black py-2 px-4">Log in</button>
             </div>
         </div>
     </header>
 </template>
+
+<script>
+export default {
+    data() {
+        return {
+            showMenu: false
+        };
+    },
+    methods: {
+        toggleMenu() {
+            this.showMenu = !this.showMenu;
+        },
+        closeMenu() {
+            this.showMenu = false;
+        }
+    }
+};
+</script>
+
+
