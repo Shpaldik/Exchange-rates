@@ -4,7 +4,7 @@
     <div v-else class="bg-bgGray w-full h-auto rounded-lg border border-gray-800 py-4">
       <div class="flex flex-col lg:flex-row justify-between items-center px-5">
         <p class="text-textGray w-full text-center lg:w-auto lg:text-left mb-2 lg:mb-0">Asset</p>
-        <div class="flex flex-col lg:flex-row w-full lg:w-auto justify-between lg:gap-32">
+        <div class="flex flex-col lg:flex-row w-full lg:w-auto justify-between lg:gap-32 xl:mr-60 lg:mr-60">
           <p class="text-textGray text-center lg:text-left mb-2 lg:mb-0">Price</p>
           <p class="text-textGray text-center lg:text-left mb-2 lg:mb-0">Change</p>
           <p class="text-textGray text-center lg:text-left mb-2 lg:mb-0">Volume</p>
