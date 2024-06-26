@@ -13,10 +13,14 @@
             </div>
       <div class="border border-gray-800 mt-3"></div>
 
-      <div v-for="(coin, index) in popularCoins" :key="coin.id" class="flex justify-between items-center m-5  border-b border-gray-800">
-        <p class="text-white">{{ coin.name }}</p>
+      <div v-for="(coin, index) in popularCoins" :key="coin.id" class="flex justify-between items-center m-5 border-b border-gray-800">
+        <div class="flex gap-3">
+          <img :src="formatImageUrl(coin)" alt="coin logo" class="w-6 h-6">
+          <p class="text-white">{{ coin.name }}</p>
+        </div>
+
         <div class="flex gap-20 text-white mr-10">
-          <img src="" alt="">
+          
           <p>{{ formatPrice(coin.quote.USD.price) }}</p>
           <p :class="changeColorClass(coin.quote.USD.percent_change_24h)">
             {{ coin.quote.USD.percent_change_24h }}%
@@ -29,7 +33,6 @@
 
     <a href="https://coinmarketcap.com/"><button id="btn" class="bg-btnBead rounded-lg text-white w-full py-2 px-4 mt-5">All assets</button></a>
     </div>
-
   </section>
 </template>
 
@@ -43,11 +46,16 @@ export default {
       isLoading: false,
       apiKey: '11ba263a-2927-4a74-81fb-d071f57726dc',
       apiUrl: 'https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest',
-      popularCoinsCount: 6 // Количество популярных монет для отображения
+      popularCoinsCount: 6, // Количество популярных монет для отображения
+      updateInterval: 60000 // Интервал обновления данных в миллисекундах
     };
   },
   created() {
     this.fetchCryptoData();
+    this.startAutoUpdate();
+  },
+  beforeDestroy() {
+    this.stopAutoUpdate();
   },
   methods: {
     async fetchCryptoData() {
@@ -65,9 +73,8 @@ export default {
         this.isLoading = false;
       }
     },
-    format (img) {
-      return `$${img.logo_url}`
-      
+    formatImageUrl(coin) {
+      return `https://s2.coinmarketcap.com/static/img/coins/64x64/${coin.id}.png`;
     },
     formatPrice(price) {
       return `$${price.toFixed(2)}`;
@@ -83,23 +90,26 @@ export default {
       } else {
         return 'text-textGray'; // Цвет по умолчанию, если процентное изменение равно 0
       }
+    },
+    startAutoUpdate() {
+      this.updateIntervalId = setInterval(this.fetchCryptoData, this.updateInterval);
+    },
+    stopAutoUpdate() {
+      clearInterval(this.updateIntervalId);
     }
   },
   computed: {
-  popularCoins() {
-    // Sort coins by price in descending order
-    return this.coins
-      .slice(0, this.popularCoinsCount) // Limit to the first 6 coins
-      .sort((a, b) => b.quote.USD.price - a.quote.USD.price); // Sort by USD price
+    popularCoins() {
+      return this.coins
+        .slice(0, this.popularCoinsCount)
+        .sort((a, b) => b.quote.USD.price - a.quote.USD.price);
+    }
   }
-}
-
 };
 </script>
 
 <style>
 #btn {
-  background: radial-gradient(100% 100% at 50% 0%, #26314E 0%, #1E253C 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */;
-
+  background: radial-gradient(100% 100% at 50% 0%, #26314E 0%, #1E253C 100%);
 }
 </style>
