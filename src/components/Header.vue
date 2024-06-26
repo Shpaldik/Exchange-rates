@@ -7,7 +7,7 @@
                 <img class="absolute top-1/2 transform -translate-y-1/2 left-3 h-5 w-5 text-gray-400" src="/public/search-lg.svg" alt="Search Icon">
             </div>
 
-            <div class="flex gap-7 items-center text-white lg:hidden">
+            <div class="flex gap-7 items-center text-white xl:hidden">
                 <a class="text-textGray" href="">Trade</a>
                 <a class="text-textGray" href="">P2P</a>
                 <a class="text-textGray" href="">Partners</a>
@@ -16,12 +16,12 @@
             </div>
 
             <div class="flex items-center gap-7">
-                <div class="flex gap-4 items-center md:hidden">
+                <div class="flex gap-4 items-center lg:hidden">
                     <button class="bg-btnGray rounded-lg text-white py-2 px-4">Register</button>
                     <button class="bg-cyan rounded-lg py-2 px-4 ">Log in</button>
                 </div>
 
-                <img class="lgmenu:hidden" src="/public/menu.png" alt="">
+                <img class="" src="/public/menu.png" alt="">
             </div>
 
         </div>

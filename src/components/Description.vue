@@ -1,6 +1,6 @@
 <template>
     <section>
-        <div class="flex justify-between mx-32 py-20">
+        <div class="flex justify-between mx-32 py-20 lg:block lg:text-center lg:justify-center lg:px-auto">
             <div>
                 <img src="/public/button.png" alt="Button" width="300">
                 <h1 class="text-6xl font-bold text-white mt-6">
