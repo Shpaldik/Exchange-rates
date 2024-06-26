@@ -12,6 +12,11 @@ export default {
         'textGray': 'rgba(70, 78, 98, 1)',
         'bgGray': 'rgba(18, 23, 31, 1)',
       },
+      screens: {
+        lg:{'max': '1350px'},
+        lgmenu:{'min': '1350px'},
+        md:{'max': '750px'},
+      }
     },
   },
   plugins: [],
