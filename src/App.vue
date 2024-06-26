@@ -1,7 +1,7 @@
 <template>
   <div>
     <Header />
-    <Description class="mt-40"/>
+    <Description class="mt-20"/>
     <CryptoBlog class="mt-20"/>
     <Bitles class="mt-20"/>
     <Pros />
