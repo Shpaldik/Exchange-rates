@@ -13,8 +13,7 @@ export default {
         'bgGray': 'rgba(18, 23, 31, 1)',
       },
       screens: {
-        lg: { max: '1100px'},
-        xl: { max: '1450px'}
+
 
       }
     },

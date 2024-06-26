@@ -1,38 +1,35 @@
 <template>
-  <section>
-    <div class="mx-32">
-      <div v-if="isLoading" class="text-center mt-4">Loading...</div>
-        <div v-else class="bg-bgGray w-full h-auto rounded-lg border border-gray-800 py-1">
-            <div class="flex justify-between items-center">
-                <p class="text-textGray ml-5">Asset</p>
-                  <div class="flex gap-32 ml-96 mr-72">
-                    <p class="text-textGray">Price</p>
-                    <p class="text-textGray">Change</p>
-                    <p class="text-textGray">Volume</p>
-                  </div>
-            </div>
-      <div class="border border-gray-800 mt-3"></div>
+  <section class="px-4 lg:px-16 xl:px-32 py-10">
+    <div v-if="isLoading" class="text-center mt-4 text-white">Loading...</div>
+    <div v-else class="bg-bgGray w-full h-auto rounded-lg border border-gray-800 py-4">
+      <div class="flex flex-col lg:flex-row justify-between items-center px-5">
+        <p class="text-textGray w-full text-center lg:w-auto lg:text-left mb-2 lg:mb-0">Asset</p>
+        <div class="flex flex-col lg:flex-row w-full lg:w-auto justify-between lg:gap-32">
+          <p class="text-textGray text-center lg:text-left mb-2 lg:mb-0">Price</p>
+          <p class="text-textGray text-center lg:text-left mb-2 lg:mb-0">Change</p>
+          <p class="text-textGray text-center lg:text-left mb-2 lg:mb-0">Volume</p>
+        </div>
+      </div>
+      <div class="border-t border-gray-800 mt-3"></div>
 
-      <div v-for="(coin, index) in popularCoins" :key="coin.id" class="flex justify-between items-center m-5 border-b border-gray-800">
-        <div class="flex gap-3">
+      <div v-for="(coin, index) in popularCoins" :key="coin.id" class="flex flex-col lg:flex-row justify-between items-center py-3 px-5 border-b border-gray-800">
+        <div class="flex items-center gap-3 mb-2 lg:mb-0 w-full lg:w-auto justify-center lg:justify-start">
           <img :src="formatImageUrl(coin)" alt="coin logo" class="w-6 h-6">
           <p class="text-white">{{ coin.name }}</p>
         </div>
-
-        <div class="flex gap-20 text-white mr-10">
-          
-          <p>{{ formatPrice(coin.quote.USD.price) }}</p>
-          <p :class="changeColorClass(coin.quote.USD.percent_change_24h)">
+        <div class="flex flex-col lg:flex-row items-center gap-2 lg:gap-20 text-white w-full lg:w-auto justify-between lg:justify-start">
+          <p class="text-center lg:text-left">{{ formatPrice(coin.quote.USD.price) }}</p>
+          <p :class="changeColorClass(coin.quote.USD.percent_change_24h)" class="text-center lg:text-left">
             {{ coin.quote.USD.percent_change_24h }}%
           </p>
-          <p>{{ formatVolume(coin.quote.USD.volume_24h) }}</p>
-          <button class="border border-cyan rounded-lg text-cyan py-2 px-4 mb-3">Trade</button>
+          <p class="text-center lg:text-left">{{ formatVolume(coin.quote.USD.volume_24h) }}</p>
+          <button class="border border-cyan rounded-lg text-cyan py-2 px-4 w-full lg:w-auto">Trade</button>
         </div>
       </div>
     </div>
-
-    <a href="https://coinmarketcap.com/"><button id="btn" class="bg-btnBead rounded-lg text-white w-full py-2 px-4 mt-5">All assets</button></a>
-    </div>
+    <a href="https://coinmarketcap.com/" class="block mt-5">
+      <button id="btn" class="bg-btnBead rounded-lg text-white w-full py-2 px-4">All assets</button>
+    </a>
   </section>
 </template>
 
