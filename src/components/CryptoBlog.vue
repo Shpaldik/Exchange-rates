@@ -41,8 +41,7 @@ export default {
     return {
       coins: [],
       isLoading: false,
-      apiKey: '11ba263a-2927-4a74-81fb-d071f57726dc',
-      apiUrl: '/api/v1/cryptocurrency/listings/latest',
+      apiUrl: 'http://localhost:3000/api/v1/cryptocurrency/listings/latest',
       popularCoinsCount: 6,
       updateInterval: 60000
     };
