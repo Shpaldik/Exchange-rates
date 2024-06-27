@@ -106,9 +106,4 @@ export default {
   background: radial-gradient(100% 100% at 50% 0%, #26314E 0%, #1E253C 100%);
 }
 
-@media (max-width: 768px) {
-  .flex-col {
-    flex-direction: column !important;
-  }
-}
 </style>
