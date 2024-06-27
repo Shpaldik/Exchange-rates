@@ -5,10 +5,9 @@ const cors = require('cors');
 const app = express();
 const port = 3000;
 
-// Middleware
+
 app.use(cors());
 
-// Endpoint для получения данных с CoinMarketCap API
 app.get('/api/v1/cryptocurrency/listings/latest', async (req, res) => {
   try {
     const response = await axios.get('https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest', {
@@ -23,7 +22,7 @@ app.get('/api/v1/cryptocurrency/listings/latest', async (req, res) => {
   }
 });
 
-// Запуск сервера
+
 app.listen(port, () => {
   console.log(`Сервер прокси запущен на http://localhost:${port}`);
 });

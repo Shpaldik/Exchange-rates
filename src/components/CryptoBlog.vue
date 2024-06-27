@@ -2,9 +2,9 @@
   <section class="px-4 lg:px-16 xl:px-32 py-10">
     <div v-if="isLoading" class="text-center mt-4 text-white">Loading...</div>
     <div v-else class="bg-bgGray w-full h-auto rounded-lg border border-gray-800 py-4">
-      <div class="flex flex-col lg:flex-row justify-between items-center px-5">
+      <div class="flex flex-col justify-center items-center mb-3 lg:flex-row lg:justify-between lg:items-center px-5">
         <p class="text-textGray w-full text-center lg:w-auto lg:text-left mb-2 lg:mb-0">Asset</p>
-        <div class="flex flex-col lg:flex-row w-full lg:w-auto justify-between lg:gap-32 xl:mr-60 lg:mr-60">
+        <div class="hidden lg:flex lg:flex-row w-full lg:w-auto justify-between lg:gap-32 xl:mr-60 lg:mr-60">
           <p class="text-textGray text-center lg:text-left mb-2 lg:mb-0">Price</p>
           <p class="text-textGray text-center lg:text-left mb-2 lg:mb-0">Change</p>
           <p class="text-textGray text-center lg:text-left mb-2 lg:mb-0">Volume</p>
@@ -12,12 +12,12 @@
       </div>
       <div class="border-t border-gray-800 mt-3"></div>
 
-      <div v-for="(coin, index) in popularCoins" :key="coin.id" class="flex flex-col lg:flex-row justify-between items-center py-3 px-5 border-b border-gray-800">
+      <div v-for="(coin, index) in popularCoins" :key="coin.id" class="flex flex-col justify-center items-center py-3 px-5 border-b border-gray-800 lg:flex-row lg:justify-between lg:items-center">
         <div class="flex items-center gap-3 mb-2 lg:mb-0 w-full lg:w-auto justify-center lg:justify-start">
           <img :src="formatImageUrl(coin)" alt="coin logo" class="w-6 h-6">
           <p class="text-white">{{ coin.name }}</p>
         </div>
-        <div class="flex flex-col lg:flex-row items-center gap-2 lg:gap-20 text-white w-full lg:w-auto justify-between lg:justify-start">
+        <div class="flex flex-col lg:flex-row items-center gap-2 lg:gap-20 text-white w-full lg:w-auto justify-center lg:justify-between lg:text-left">
           <p class="text-center lg:text-left">{{ formatPrice(coin.quote.USD.price) }}</p>
           <p :class="changeColorClass(coin.quote.USD.percent_change_24h)" class="text-center lg:text-left">
             {{ coin.quote.USD.percent_change_24h }}%
@@ -41,7 +41,8 @@ export default {
     return {
       coins: [],
       isLoading: false,
-      apiUrl: 'http://localhost:3000/api/v1/cryptocurrency/listings/latest',
+      apiKey: '11ba263a-2927-4a74-81fb-d071f57726dc',
+      apiUrl: '/api/v1/cryptocurrency/listings/latest',
       popularCoinsCount: 6,
       updateInterval: 60000
     };
@@ -100,8 +101,14 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 #btn {
   background: radial-gradient(100% 100% at 50% 0%, #26314E 0%, #1E253C 100%);
+}
+
+@media (max-width: 768px) {
+  .flex-col {
+    flex-direction: column !important;
+  }
 }
 </style>
