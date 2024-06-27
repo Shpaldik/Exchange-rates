@@ -42,7 +42,7 @@ export default {
       coins: [],
       isLoading: false,
       apiKey: '11ba263a-2927-4a74-81fb-d071f57726dc',
-      apiUrl: 'https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest',
+      apiUrl: '/api/v1/cryptocurrency/listings/latest',
       popularCoinsCount: 6,
       updateInterval: 60000
     };
@@ -58,11 +58,7 @@ export default {
     async fetchCryptoData() {
       try {
         this.isLoading = true;
-        const response = await axios.get(this.apiUrl, {
-          headers: {
-            'X-CMC_PRO_API_KEY': this.apiKey
-          }
-        });
+        const response = await axios.get(this.apiUrl);
         this.coins = response.data.data;
         this.isLoading = false;
       } catch (error) {
