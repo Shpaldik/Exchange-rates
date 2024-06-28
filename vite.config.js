@@ -18,10 +18,8 @@ export default defineConfig({
         target: 'https://pro-api.coinmarketcap.com',
         changeOrigin: true,
         rewrite: (path) => path.replace(/^\/api/, ''),
-        configure: (proxy, options) => {
-          proxy.on('proxyReq', (proxyReq, req, res) => {
-            proxyReq.setHeader('X-CMC_PRO_API_KEY', '11ba263a-2927-4a74-81fb-d071f57726dc');
-          });
+        headers: {
+          'X-CMC_PRO_API_KEY': '11ba263a-2927-4a74-81fb-d071f57726dc'
         }
       }
     }
