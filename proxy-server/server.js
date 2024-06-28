@@ -5,7 +5,6 @@ const cors = require('cors');
 const app = express();
 const port = 3000;
 
-
 app.use(cors());
 
 app.get('/api/v1/cryptocurrency/listings/latest', async (req, res) => {
@@ -21,7 +20,6 @@ app.get('/api/v1/cryptocurrency/listings/latest', async (req, res) => {
     res.status(error.response.status || 500).json({ error: 'Failed to fetch data' });
   }
 });
-
 
 app.listen(port, () => {
   console.log(`Сервер прокси запущен на http://localhost:${port}`);
