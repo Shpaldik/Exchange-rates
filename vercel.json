@@ -1,0 +1,23 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "proxy-server/server.js",
+      "use": "@vercel/node"
+    },
+    {
+      "src": "package.json",
+      "use": "@vercel/static-build"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/api/v1/cryptocurrency/listings/latest",
+      "dest": "/proxy-server/server.js"
+    },
+    {
+      "src": "/(?!api)",
+      "dest": "/index.html"
+    }
+  ]
+}
